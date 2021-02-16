@@ -8,65 +8,92 @@ function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function Shops(name, min, max, average) {
 
-const seattle = {
-    locationName: 'seattle',
-    minCustomers: 23,
-    maxCustomers: 65,
-    avgCookiePerCustomer: 6.3,
-    customersPerHour: [],
-    cookiesPerHour: [],
-    total: 0,
-
-    calCustomersPerHour: function () {
-        for (let i = 0; i < workHours.length; i++) {
-            this.customersPerHour.push(random(this.minCustomers, this.maxCustomers))
-
-
-        }
-    },
-
-    calCookiesPerHour: function () {
-        for (let i = 0; i < workHours.length; i++) {
-            // console.log(this.customersPerHour[i]);
-            this.cookiesPerHour.push(Math.floor(this.customersPerHour[i] * this.avgCookiePerCustomer));
-
-            this.total+=this.cookiesPerHour[i]
-        }
-    },
-
-    render: function () {
-        let parent = document.getElementById('seattle');
-        console.log(parent);
-        
-
-        let shopCity = document.createElement('h3');
-        parent.appendChild(shopCity);
-
-        shopCity.textContent=this.locationName;
-        
-        let unorderedList = document.createElement('ul');
-        parent.appendChild(unorderedList);
-        //console.log(unorderedList);
-
-        for (let i=0;i<workHours.length;i++){
-            let listItem = document.createElement('li');
-            unorderedList.appendChild(listItem);
-            listItem.textContent = `${workHours[i]}: ${this.cookiesPerHour[i]} cookies`
-        }
-        let totalItem = document.createElement('li');
-
-        unorderedList.appendChild(totalItem);
-
-        totalItem.textContent=`total: ${this.total} cookies`;
-    }
+    this.locationName = name;
+    this.minCustomers = min;
+    this.maxCustomers = max;
+    this.avgCookiePerCustomer = average;
+    this.customersPerHour = [],
+    this.cookiesPerHour = [],
+    this.total = 0
 
 }
 
-seattle.calCustomersPerHour();
-seattle.calCookiesPerHour();
-seattle.render();
+Shops.prototype.calCustomersPerHour = function () {
+    for (let i = 0; i < workHours.length; i++) {
+        this.customersPerHour.push(random(this.minCustomers, this.maxCustomers))
+
+
+    }
+}
+
+Shops.prototype.calCookiesPerHour = function () {
+    for (let i = 0; i < workHours.length; i++) {
+        // console.log(this.customersPerHour[i]);
+        this.cookiesPerHour.push(Math.floor(this.customersPerHour[i] * this.avgCookiePerCustomer));
+
+        this.total += this.cookiesPerHour[i]
+    }
+}
+
+Shops.prototype.render = function () {
+    let parent = document.getElementById('seattle');
+    console.log(parent);
+
+
+    let shopCity = document.createElement('h3');
+    parent.appendChild(shopCity);
+
+    shopCity.textContent = this.locationName;
+
+    let unorderedList = document.createElement('ul');
+    parent.appendChild(unorderedList);
+    //console.log(unorderedList);
+
+    for (let i = 0; i < workHours.length; i++) {
+        let listItem = document.createElement('li');
+        unorderedList.appendChild(listItem);
+        listItem.textContent = `${workHours[i]}: ${this.cookiesPerHour[i]} cookies`
+    }
+    let totalItem = document.createElement('li');
+
+    unorderedList.appendChild(totalItem);
+
+    totalItem.textContent = `total: ${this.total} cookies`;
+
+
+}
+let seattle = new Shops('Seattle', 23, 65, 6.3);
+let tokyo = new Shops('Tokyo', 3, 24, 1.2);
+let dubai = new Shops('Dubai', 11, 38, 3.7);
+let paris = new Shops('Paris', 20, 38, 2.3);
+let lima = new Shops('Lima', 2, 16, 4.6);
+
+seattle.calCustomersPerHour()
+seattle.calCookiesPerHour()
+seattle.render()
 console.log(seattle);
+
+tokyo.calCustomersPerHour()
+tokyo.calCookiesPerHour()
+tokyo.render()
+console.log(tokyo);
+
+dubai.calCustomersPerHour()
+dubai.calCookiesPerHour()
+dubai.render()
+console.log(dubai);
+
+paris.calCustomersPerHour()
+paris.calCookiesPerHour()
+paris.render()
+console.log(paris);
+
+lima.calCustomersPerHour()
+lima.calCookiesPerHour()
+lima.render()
+console.log(lima);
 
 
 
@@ -74,7 +101,7 @@ console.log(seattle);
 
 /////2////
 
-
+/*
 const tokyo = {
     locationName: 'Tokyo',
     minCustomers: 3,
@@ -104,13 +131,13 @@ const tokyo = {
     render: function () {
         let parent = document.getElementById('seattle');
         console.log(parent);
-        
+
 
         let shopCity = document.createElement('h3');
         parent.appendChild(shopCity);
 
         shopCity.textContent=this.locationName;
-        
+
         let unorderedList = document.createElement('ul');
         parent.appendChild(unorderedList);
         //console.log(unorderedList);
@@ -170,13 +197,13 @@ const dubai = {
     render: function () {
         let parent = document.getElementById('seattle');
         console.log(parent);
-        
+
 
         let shopCity = document.createElement('h3');
         parent.appendChild(shopCity);
 
         shopCity.textContent=this.locationName;
-        
+
         let unorderedList = document.createElement('ul');
         parent.appendChild(unorderedList);
         //console.log(unorderedList);
@@ -238,13 +265,13 @@ const paris = {
     render: function () {
         let parent = document.getElementById('seattle');
         console.log(parent);
-        
+
 
         let shopCity = document.createElement('h3');
         parent.appendChild(shopCity);
 
         shopCity.textContent=this.locationName;
-        
+
         let unorderedList = document.createElement('ul');
         parent.appendChild(unorderedList);
         //console.log(unorderedList);
@@ -306,13 +333,13 @@ const lima = {
     render: function () {
         let parent = document.getElementById('seattle');
         console.log(parent);
-        
+
 
         let shopCity = document.createElement('h3');
         parent.appendChild(shopCity);
 
         shopCity.textContent=this.locationName;
-        
+
         let unorderedList = document.createElement('ul');
         parent.appendChild(unorderedList);
         //console.log(unorderedList);
@@ -336,6 +363,8 @@ lima.calCookiesPerHour();
 lima.render();
 console.log(lima);
 
+
+*/
 
 
 
