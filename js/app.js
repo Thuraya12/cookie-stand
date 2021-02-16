@@ -15,8 +15,8 @@ function Shops(name, min, max, average) {
     this.maxCustomers = max;
     this.avgCookiePerCustomer = average;
     this.customersPerHour = [],
-    this.cookiesPerHour = [],
-    this.total = 0
+        this.cookiesPerHour = [],
+        this.total = 0
 
 }
 
@@ -37,28 +37,38 @@ Shops.prototype.calCookiesPerHour = function () {
     }
 }
 
+
+
 Shops.prototype.render = function () {
-    let parent = document.getElementById('seattle');
+    let parent = document.getElementById('cookieshop');
     console.log(parent);
 
 
-    let shopCity = document.createElement('h3');
-    parent.appendChild(shopCity);
+    let tableElement = document.createElement('table');
+    parent.appendChild(tableElement);
 
-    shopCity.textContent = this.locationName;
 
-    let unorderedList = document.createElement('ul');
-    parent.appendChild(unorderedList);
-    //console.log(unorderedList);
+    let headerRow = document.createElement('tr');
+    parent.appendChild(headerRow);
+
+
+    let th1 = document.createElement('th');
+    headerRow.appendChild(th1);
+    th1.textContent = this.locationName;
+
+
 
     for (let i = 0; i < workHours.length; i++) {
-        let listItem = document.createElement('li');
-        unorderedList.appendChild(listItem);
-        listItem.textContent = `${workHours[i]}: ${this.cookiesPerHour[i]} cookies`
+        let td1 = document.createElement('td');
+        headerRow.appendChild(td1);
+        td1.textContent = `${workHours[i]}: ${this.cookiesPerHour[i]} cookies`
     }
-    let totalItem = document.createElement('li');
 
-    unorderedList.appendChild(totalItem);
+
+
+    let totalItem = document.createElement('td');
+
+    headerRow.appendChild(totalItem);
 
     totalItem.textContent = `total: ${this.total} cookies`;
 
@@ -94,6 +104,19 @@ lima.calCustomersPerHour()
 lima.calCookiesPerHour()
 lima.render()
 console.log(lima);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
