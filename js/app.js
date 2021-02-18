@@ -147,4 +147,10 @@ footer();
 
 
 
-    
+
+
+let newLocations = document.getElementById('newLocations');
+newLocations.addEventListener('submit', submitter)
+
+function submitter(event){
+    event.preventDefault();}
