@@ -2,7 +2,7 @@
 const workHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 
-
+ 
 
 function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -130,11 +130,61 @@ let footer=function (){
     let lastTd=document.createElement('th');
     footerRow.appendChild(lastTd);
     lastTd.textContent=totalOfTotal
+
+
+    
 }
 
 
 
-header()
+
+
+//footer();
+
+
+
+
+
+let newLocation = document.getElementById('newLocation');
+
+newLocation.addEventListener('submit', submitter)
+
+function submitter(event){
+    event.preventDefault();
+    console.log(event);
+   
+    let name = event.target.cityField.value;
+    console.log(name);
+    //let nameArray= name.split(',')
+    //console.log(nameArray);
+
+    let minimum = event.target.minField.value;
+    console.log(minimum);
+
+    
+    let maximum = event.target.maxField.value;
+    console.log(maximum);
+
+    
+    let averageInput = event.target.averageField.value;
+    console.log(averageInput);
+
+    let checkbox= event.target.box.checked;
+    console.log(checkbox);
+    
+
+  let newStore= new Shops (name, minimum,maximum, averageInput)
+
+
+  newStore.calCustomersPerHour();
+  newStore.calCookiesPerHour();
+  newStore.render();
+  //footer();
+let container=document.getElementById('cookieshop');
+container.textContent=''
+
+
+//header();
 
 for (let i=0; i<shops.length; i++){
     shops[i].calCustomersPerHour();
@@ -142,15 +192,19 @@ for (let i=0; i<shops.length; i++){
     shops[i].render();
 }
 console.log(shops);
+//footer();*/
+}
 
+header();
+
+for (let i=0; i<shops.length; i++){
+    shops[i].calCustomersPerHour();
+    shops[i].calCookiesPerHour();
+    shops[i].render();
+}
+console.log(shops);
 footer();
 
 
 
 
-
-let newLocations = document.getElementById('newLocations');
-newLocations.addEventListener('submit', submitter)
-
-function submitter(event){
-    event.preventDefault();}
