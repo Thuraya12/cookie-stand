@@ -12,12 +12,9 @@ header {
     background-color: rgb(245, 112, 63, 0.7);
     
 }
-/*body header nav  {
-    float: right;
-    width: 1370px;
-    background-color: rgb(105, 56, 151, 0.7);
-   
-}*/
+
+header nav a {color: rgb(61, 15, 94);}
+
 #sales{
     margin-left: 100px;
 }
