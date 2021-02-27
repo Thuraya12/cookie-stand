@@ -1,3 +1,86 @@
 table, td, th {
     border: solid 1px black;
 }
+body {margin: 0px;}
+
+#logo {
+    width: 20%;
+    height: 80%;
+    margin-top: 30px;
+}
+header {
+    background-color: rgb(245, 112, 63, 0.7);
+    
+}
+/*body header nav  {
+    float: right;
+    width: 1370px;
+    background-color: rgb(105, 56, 151, 0.7);
+   
+}*/
+#sales{
+    margin-left: 100px;
+}
+
+
+
+
+
+
+
+body header nav a {
+    text-decoration: none;
+    font-size: 35px;
+    font-family: 'RocknRoll One', sans-serif;
+    margin-left: 800px;
+
+}
+#logotxt {
+    margin-top: 20px;
+    font-size: 40px;
+    font-family: 'RocknRoll One', sans-serif;
+    width: 200px;
+    margin: 0px;
+    margin-right: 0px;
+    margin-left: 35px;
+}
+
+#hero {
+    height: 500px;
+  
+}
+
+#hero-txt {
+    float: right;
+    font-size: 50px;
+    color: blueviolet;
+    font-family: 'Ballet', cursive;
+    font-weight: bold;
+    margin-top: 200px;
+}
+
+footer{
+    background-color: rgb(201, 194, 194);
+    height: 200px;
+    font-size: 20px;
+    font-family: 'RocknRoll One', sans-serif; 
+    color: rgb(29, 3, 48);
+}
+
+
+#body{
+    background-color: rgb(255, 173, 143);
+}
+#footer2 {
+    background-color: coral;
+}
+
+
+
+#hp{color: rgb(15, 3, 15);
+    margin-left: 500px;
+
+}
+
+
+
